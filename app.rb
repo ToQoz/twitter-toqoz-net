@@ -12,8 +12,6 @@ require 'mongoid'
 require './api/twitter'
 # require './models/post'
 
-
-
 def load_accounts
   path = File.expand_path("./config/accounts.yml")
   Hashie::Mash.new(YAML.load_file("./config/accounts.yml"))
@@ -30,7 +28,6 @@ get '/' do
 end
 
 post '/' do
-  p params
   content_type :json
   client = Twitter.new(options.accounts.twitter).client()
   begin

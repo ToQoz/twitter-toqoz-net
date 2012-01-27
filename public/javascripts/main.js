@@ -48,7 +48,10 @@ function createXhr() {
     return this;
   }
   function send(callback){
-    this._req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    this._req.setRequestHeader(
+      "Content-Type",
+      "application/x-www-form-urlencoded"
+    );
     this._req.onreadystatechange = (function() {
       var self = this;
       return function() {
