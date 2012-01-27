@@ -1,0 +1,6 @@
+/config/accounts.yml
+/.sass-cache/*
+
+/logs/*
+/tmp/*
+.DS_Store
