@@ -7,6 +7,7 @@ gem "mongoid", "~> 2.4.0"
 gem "bson_ext"
 gem "oauth"
 gem "rubytter"
+gem "rack_csrf"
 
 gem 'unicorn'
 
