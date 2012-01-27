@@ -1,5 +1,4 @@
-/config/accounts.yml
-/config/app.yml
+/config/config.yml
 /.sass-cache/*
 
 /logs/*
