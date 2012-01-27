@@ -41,6 +41,7 @@
       return this;
     }
     function send(callback){
+      this._req.setRequestHeader('X-CSRF-Token', this._params._csrf);
       this._req.setRequestHeader(
         "Content-Type",
         "application/x-www-form-urlencoded"

@@ -21,6 +21,7 @@ end
 
 configure do
   config = load_config()
+  set :app_file, __FILE__
   set :accounts, config.accounts
   use Rack::Session::Cookie, :secret => config.app.session_secret
   use Rack::Csrf, :raise => true
