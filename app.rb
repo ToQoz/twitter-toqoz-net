@@ -34,9 +34,10 @@ end
 
 post '/' do
   content_type :json
-  client = Twitter.new(options.accounts.twitter).client()
+  twitter = Twitter.new(options.accounts.twitter)
+  client = twitter.client()
   begin
-    client.update(params['body'])
+    client.update(twitter.trim_command(params["body"]))
     {:status => true, :msg => "Complete Post"}.to_json
   rescue => e
     {:status => false, :msg => e.message}.to_json
