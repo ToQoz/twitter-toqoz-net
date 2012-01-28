@@ -5,7 +5,7 @@
         _csrf = $("#tweet input[name=_csrf]").value(),
         xhr = util.createXhr().initialize({
           method: "POST",
-          url: "/",
+          url: "./",
           params: {body: body, _csrf: _csrf},
           callback: didPost
         });
