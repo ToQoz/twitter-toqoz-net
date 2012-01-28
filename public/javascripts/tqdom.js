@@ -7,15 +7,20 @@
       _initialize: _initialize,
       bind: bind,
       dom: false,
-      value: value
+      value: value,
+      html: html
     };
 
     interfaces._initialize(query, index);
     return interfaces;
 
     function _initialize(query, index) {
-      this.dom = (index) ? document[_querySelectorAll](query)[index] :
-                           document[_querySelector](query);
+      if (!util.is("String", query)) {
+        this.dom = query;
+      } else {
+        this.dom = (index) ? document[_querySelectorAll](query)[index] :
+                             document[_querySelector](query);
+      }
       return this;
     }
 
@@ -29,10 +34,18 @@
     }
 
     function value(newValue) {
-      if (typeof newValue === "undefined") {
+      if (util.is("undefined", newValue)) {
         return this.dom.value;
       } else {
         return this.dom.value = newValue;
+      }
+    }
+
+    function html(newHtml) {
+      if (util.is("undefined", newHtml)) {
+        return this.dom.innerHTML;
+      } else {
+        return this.dom.innerHTML = newHtml;
       }
     }
 

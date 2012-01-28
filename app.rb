@@ -44,7 +44,7 @@ post '/' do
 end
 
 get '/stylesheets/:name.css' do
-    sass :"stylesheets/#{params[:name]}"
+  sass :"stylesheets/#{params[:name]}"
 end
 
 helpers do

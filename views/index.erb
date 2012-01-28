@@ -1,6 +1,9 @@
-<h1>頭骨API</h1>
-<form method="POST" action="./" id="tweet">
-    <%= csrf_tag %>
-    <input type="textarea" name="body" value="" />
-    <input type="submit" value="Post" />
-</form>
+<section class="main">
+    <h1>頭骨API</h1>
+    <form method="POST" action="./" id="tweet" class="tweet">
+        <%= csrf_tag %>
+        <textarea name="body" value="" cols="50" rows="10"></textarea>
+        <input type="submit" value="Post" class="post" />
+        <span id="counter" class="counter">0 / 140</span>
+    </form>
+</section>

@@ -1,7 +1,8 @@
 (function (global) {
   var util = {
     createXhr: createXhr,
-    parseParams: parseParams
+    parseParams: parseParams,
+    is: is
   };
   /**
    * memberof util 
@@ -60,6 +61,14 @@
     }
     return interfaces;
   }
+
+  function is(type, obj) {
+    if (type === "Number") return (obj === +obj);
+    if (type === "undefined") return (typeof obj === "undefined");
+
+    var clas = Object.prototype.toString.call(obj).slice(8, -1);
+    return obj !== null && clas === type;
+  };
 
   global.util =  util;
 })(window);
