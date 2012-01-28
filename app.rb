@@ -25,6 +25,7 @@ configure do
   set :accounts, config.accounts
   use Rack::Session::Cookie, :secret => config.app.session_secret
   use Rack::Csrf, :raise => true
+  set :protection, :except => :json_csrf
 end
 
 get '/' do
