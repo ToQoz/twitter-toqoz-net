@@ -1,5 +1,5 @@
 (function (global) {
-  function $(query, index) {
+  function $(query) {
     var _querySelector = "querySelector"
     var _querySelectorAll = "querySelectorAll"
 
@@ -11,19 +11,22 @@
       html: html
     };
 
-    interfaces._initialize(query, index);
+    interfaces._initialize(query);
     return interfaces;
 
-    function _initialize(query, index) {
+    function _initialize(query) {
       if (!util.is("String", query)) {
+        // HTMLElementとか渡ってきたとき
         this.dom = query;
       } else {
-        this.dom = (index) ? document[_querySelectorAll](query)[index] :
-                             document[_querySelector](query);
+        var res = document[_querySelectorAll](query)
+        this.dom = (res.length === 0) ? false :
+                   (res.length === 1) ? res[0] :
+                   res;
       }
       return this;
     }
-
+    
     function expand(obj) {
       var key;
       for (key in obj) {
