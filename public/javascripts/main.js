@@ -24,7 +24,8 @@
     }, false);
     function didPost(res) {
       if (!!res.status === false) alert(res.msg);
-      var body = $("#tweet textarea").value("");
+      $("#tweet textarea").value("");
+      $("#counter").html("0 / 140");
     }
   });
 })(window);

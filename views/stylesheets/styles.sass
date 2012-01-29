@@ -1,22 +1,101 @@
+@charset "UTF-8"
 $whitesmoke: #f5f5f5
+
+$textarea-radius: 4px
+$textarea-shadow-width: 4px
+$textarea-shadow: inset 0px 0px $textarea-shadow-width 0px #666
+$textarea-transition: all 0.10s ease-in-out
+@mixin border-radius($radius)
+    -webkit-border-radius: $radius
+    -moz-border-radius: $radius
+    -ms-border-radius: $radius
+    -o-border-radius: $radius
+    border-radius: $radius
+@mixin box-shadow($shadow)
+    -webkit-box-shadow: $shadow
+    -moz-box-shadow: $shadow
+    -ms-box-shadow: $shadow
+    -o-box-shadow: $shadow
+    box-shadow: $shadow
+@mixin transition($transition)
+    -webkit-transition: $transition
+    -moz-transition: $transition
+    -ms-transition: $transition
+    -o-transition: $transition
+    transition: $transition
+@mixin outline-radius($radius)
+    -webkit-outline-radius: $textarea-radius
+    -moz-outline-radius: $textarea-radius
+    -ms-outline-radius: $textarea-radius
+    -o-outline-radius: $textarea-radius
+    outline-radius: $textarea-radius
+@mixin outline-offset($offset)
+    //-webkit-outline-offset: $offset
+    //-moz-outline-offset: $offset
+    //-ms-outline-offset: $offset
+    //-o-outline-offset: $offset
+    outline-offset: $offset
+
 body
+    font-family: "Open Sans","Helvetica Neue","Arial",sans-serif
     background-color: $whitesmoke
-    font-family: sans-serif
     width: 366px
-    margin: 10px auto 0 auto
+    margin: 10px auto 20px auto
 .main
     margin: 0 30px 0 30px
 .tweet
     width: 306px
+    overflow: hidden
 .tweet textarea
     width: 300px
+    margin: 0 0 10px 0
     display: block
-    margin: 10px 0 20px 0
+    border: 1px solid #ccc
+    @include border-radius($textarea-radius)
+    @include box-shadow($textarea-shadow)
+    @include transition($textarea-transition)
+.tweet textarea:focus
+    @include outline-radius($textarea-radius)
+    @include outline-offset(- $textarea-shadow-width)
 .tweet .counter
     float: right
-    height: 23px
-    padding: 3px 0 3px 0
-    margin: 0 10px 0 5px
+    color: #666666
+    height: 20px
+    font-size: 15px
+    font-weight: bold
+    padding: 6px 12px 4px 12px
 .tweet .post
+    font-size: 12px
+    font-weight: bold
+    color: #6E6E6E
+    background: url(/images/toqoz.png) no-repeat #F3F3F3
     float: right
-    height: 23px
+    padding: 9px 15px 9px 35px
+    text-shadow: 0 1px 0 white
+    border: solid 1px gainsboro
+    @include transition(all 0.518s ease-in-out)
+    @include border-radius(2px)
+    margin-right: 5px
+
+.tweet .post:hover
+    border: solid 1px #AEAEAE
+    background: url(/images/toqoz.png) no-repeat #D5D5D5
+
+em
+    font-family: 'Orbitron', sans-serif
+    padding-right: 5px
+a
+    color: #000000
+    text-decoration: none
+    border-bottom: 1px solid #CCC
+a:link
+    color: #000000
+    text-decoration: none
+    border-bottom: 1px solid #CCC
+a:visited
+    color: #000000
+    text-decoration: none
+    border-bottom: 1px solid #CCC
+a:hover, a:active
+    color: #1C62B9
+    border-bottom: 1px solid #1C62B9
